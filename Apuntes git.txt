@@ -27,13 +27,30 @@ Si quieres verificar que los cambios se han aplicado correctamente, puedes usar:
 git config --global --list    
 
 Inicializar un repositorio:
-
 git init
 
-Ver el estado de un repositorio Git:
-
+Ver el estado del área de trabajo de Git:
 git status    
 
-Añadir los archivos a git:
-
+Añadir los archivos al área de trabajo de git:
 git add "Apuntes git.txt"
+git add .
+
+Hacer una instantania de lo que se ha añadido al área de trabajo de git:
+git commit -m "Este es mi primer commit"
+
+Añadir todos los archivos al área de trabajo y Hacer una instantania de lo que se ha añadido al área de trabajo de git:
+git commit -am "Tu mensaje de commit"
+
+Verificar la existencia del remoto:
+git remote -v
+
+Listar las ramas del remoto:
+git ls-remote --heads origin
+git branch -r
+
+Crea una nueva rama y se cambia a ella:
+git checkout -b nombre-de-la-rama
+
+Ver el historial:
+git log

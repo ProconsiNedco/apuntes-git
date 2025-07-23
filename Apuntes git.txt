@@ -1,0 +1,39 @@
+
+
+
+					APUNTES DE GIT
+
+
+
+Configuración global de git:
+
+1. Cambiar el nombre de usuario global
+git config --global user.name "Tu Nuevo Nombre de Usuario"    
+
+2. Cambiar el correo electrónico global
+git config --global user.email "tunuevoemail@ejemplo.com"    
+
+3. Cambiar el nombre de la rama principal por defecto
+git config --global init.defaultBranch main    
+
+4. Para que Git confíe automáticamente en todos los repositorios dentro de tu carpeta de usuario en Windows
+git config --global --add safe.directory "%USERPROFILE%"
+
+5. Para que Git confíe automáticamente en un repositorio de un directorio específico
+git config --global --add safe.directory "C:/Users/isidro.carbajo/apuntes-git"
+
+-----
+Si quieres verificar que los cambios se han aplicado correctamente, puedes usar:
+git config --global --list    
+
+Inicializar un repositorio:
+
+git init
+
+Ver el estado de un repositorio Git:
+
+git status    
+
+Añadir los archivos a git:
+
+git add "Apuntes git.txt"

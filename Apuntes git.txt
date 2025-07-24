@@ -69,6 +69,9 @@ Parámetros:
 - `--name-only`: Lista solo los nombres de archivos modificados.
 - `--grep="texto"`: Filtra commits cuyo mensaje contiene cierto texto.
 
+Ver todas las referencias del historial:
+git reflog
+
 Elimina el archivo del área de preparación:
 git reset archivo.txt
 

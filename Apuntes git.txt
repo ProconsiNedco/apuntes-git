@@ -22,6 +22,9 @@ git config --global --add safe.directory "%USERPROFILE%"
 5. Para que Git confíe automáticamente en un repositorio de un directorio específico
 git config --global --add safe.directory "C:/Users/isidro.carbajo/apuntes-git"
 
+6. Crear alias para ejecutar comandos
+git config --global alias.<alias> '<comando>'
+
 -----
 Si quieres verificar que los cambios se han aplicado correctamente, puedes usar:
 git config --global --list    
@@ -29,17 +32,14 @@ git config --global --list    
 Inicializar un repositorio:
 git init
 
-Ver el estado del área de trabajo de Git:
-git status    
-
-Añadir los archivos al área de trabajo de git:
+Añadir los archivos al área de preparación de git:
 git add "Apuntes git.txt"
 git add .
 
-Hacer una instantania de lo que se ha añadido al área de trabajo de git:
+Hacer una instantania de lo que se ha añadido al área de preparación de git:
 git commit -m "Este es mi primer commit"
 
-Añadir todos los archivos al área de trabajo y Hacer una instantania de lo que se ha añadido al área de trabajo de git:
+Añadir todos los archivos al área de preparación y Hacer una instantania de lo que se ha añadido al área de preparación de git:
 git commit -am "Tu mensaje de commit"
 
 Verificar la existencia del remoto:
@@ -49,8 +49,47 @@ Listar las ramas del remoto:
 git ls-remote --heads origin
 git branch -r
 
+Cambiarse a la rama:
+git switch nombre-de-la-rama
+git checkout nombre-de-la-rama
+
 Crea una nueva rama y se cambia a ella:
+git switch -c nombre-de-la-rama
 git checkout -b nombre-de-la-rama
+
+Ver el estado del área de preparación y trabajo de Git:
+git status    
 
 Ver el historial:
 git log
+Parámetros:
+- `--oneline`: Muestra cada commit en una sola línea (hash corto + mensaje).
+- `--graph`: Dibuja un gráfico ASCII del historial de ramas.
+- `--decorate`: Muestra nombres de ramas y etiquetas junto a los commits.
+- `--name-only`: Lista solo los nombres de archivos modificados.
+- `--grep="texto"`: Filtra commits cuyo mensaje contiene cierto texto.
+
+Elimina el archivo del área de preparación:
+git reset archivo.txt
+
+Elimina todos los archivos del área de preparación:
+git reset
+
+Restaura el archivo del último commit al área de trabajo:
+git restore archivo.txt
+git checkout -- archivo.txt
+
+Restaura todos los archivos al área de trabajo y elimina los archivos del área de preparación:
+git reset --hard
+
+Muestra las diferencias entre el área de trabajo y el área de presentación:
+git diff
+
+Muestra las diferencias entre el área de trabajo y el último commit:
+git diff HEAD
+
+Ver diferencias con formato resumido:
+git diff --stat
+
+Ver diferencias de un archivo:
+git diff HEAD -- ruta/del/archivo.txt

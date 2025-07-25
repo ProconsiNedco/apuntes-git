@@ -25,6 +25,9 @@ git config --global --add safe.directory "C:/Users/isidro.carbajo/apuntes-git"
 6. Crear alias para ejecutar comandos
 git config --global alias.<alias> '<comando>'
 
+7. para que no distinga en los nombres de los archivos entre mayúsculas y minúsculas.
+git config --global core.ignorecase true
+
 -----
 Si quieres verificar que los cambios se han aplicado correctamente, puedes usar:
 git config --global --list    

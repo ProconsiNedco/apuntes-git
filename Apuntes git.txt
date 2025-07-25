@@ -96,3 +96,34 @@ git diff --stat
 
 Ver diferencias de un archivo:
 git diff HEAD -- ruta/del/archivo.txt
+
+Sintaxis tag:
+git tag [opciones] [nombre-etiqueta] [commit]
+Opciones:
+-l Lista los tag
+-d <nombre-del-tag> Borra el tag
+
+Listar las ramas locales del repositorio:
+git branch
+Parámetros:
+Muestra todas las ramas, tanto locales como remotas.
+1. -a o --all
+Muestra solo las ramas remotas.
+2. -r o --remotes
+Crea una nueva rama con el nombre especificado.
+3. branch <nombre>
+Elimina una rama local (solo si ya ha sido fusionada).
+4. -d <nombre> o --delete <nombre>
+Elimina una rama local forzadamente, aunque no haya sido fusionada.
+5. -D <nombre>
+Renombra la rama actual.
+6. -m <nombre> o --move <nombre>
+Renombra una rama específica.
+7. -m <viejo> <nuevo>
+Muestra las ramas que contienen un commit específico.
+8. --contains <commit>
+Lista las ramas que han sido completamente fusionadas con la rama actual.
+9. --merged
+Lista las ramas que no han sido fusionadas con la rama actual.
+10. --no-merged
+

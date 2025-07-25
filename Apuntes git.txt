@@ -124,6 +124,6 @@ Muestra las ramas que contienen un commit específico.
 8. --contains <commit>
 Lista las ramas que han sido completamente fusionadas con la rama actual.
 9. --merged
-Lista las ramas que no han sido fusionadas con la rama actual.
+Lista las ramas que no han sido fusionadas con la rama actual. Modificado.
 10. --no-merged
 

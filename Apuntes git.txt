@@ -85,7 +85,7 @@ git checkout -- archivo.txt
 Restaura todos los archivos al área de trabajo y elimina los archivos del área de preparación:
 git reset --hard
 
-Muestra las diferencias entre el área de trabajo y el área de presentación:
+Muestra los cambios no confirmados (unstaged) en el directorio de trabajo.
 git diff
 
 Muestra las diferencias entre el área de trabajo y el último commit:
@@ -96,6 +96,34 @@ git diff --stat
 
 Ver diferencias de un archivo:
 git diff HEAD -- ruta/del/archivo.txt
+
+Muestra los cambios que han sido añadidos al área de preparación (staged) pero aún no confirmados.
+git diff --staged
+
+Muestra las diferencias entre dos commits.
+git diff <commit1> <commit2>  
+
+Compara dos ramas.
+git diff <branch1> <branch2>  
+
+Muestra los cambios en un archivo específico en un commit.
+git diff <commit> <file>  
+
+Opciones:
+Muestra solo los nombres de los archivos modificados.
+--name-only  
+
+Muestra los nombres de los archivos y el tipo de cambio (`A` = añadido, `M` = modificado, `D` = eliminado).
+--name-status  
+
+Muestra un resumen estadístico de los cambios (líneas añadidas/eliminadas por archivo).
+--stat  
+
+Ignora cambios en espacios en blanco.
+--ignore-space-change o -b  
+
+Ignora todos los espacios en blanco.
+--ignore-all-space o -w  
 
 Sintaxis tag:
 git tag [opciones] [nombre-etiqueta] [commit]

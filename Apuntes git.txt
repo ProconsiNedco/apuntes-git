@@ -25,9 +25,6 @@ git config --global --add safe.directory "C:/Users/isidro.carbajo/apuntes-git"
 6. Crear alias para ejecutar comandos
 git config --global alias.<alias> '<comando>'
 
-7. para que no distinga en los nombres de los archivos entre mayúsculas y minúsculas.
-git config --global core.ignorecase true
-
 -----
 Si quieres verificar que los cambios se han aplicado correctamente, puedes usar:
 git config --global --list    
@@ -108,6 +105,8 @@ Opciones:
 
 Listar las ramas locales del repositorio:
 git branch
+Indica cual es la rama actual:
+git rev-parse --abbrev-ref HEAD
 Parámetros:
 Muestra todas las ramas, tanto locales como remotas.
 1. -a o --all
@@ -125,8 +124,51 @@ Renombra una rama específica.
 7. -m <viejo> <nuevo>
 Muestra las ramas que contienen un commit específico.
 8. --contains <commit>
-Lista las ramas que han sido completamente fusionadas, con la rama actual.
+Lista las ramas que han sido completamente fusionadas con la rama actual.
 9. --merged
 Lista las ramas que no han sido fusionadas con la rama actual.
 10. --no-merged
 
+Funde la rama especificada con la rama actual:
+git merge <rama>
+Parámetros:
+Fuerza una fusión con commit, incluso si se podría hacer un fast-forward.
+1. --no-ff
+Solo permite la fusión si puede hacerse como fast-forward. Si no es posible, falla.
+2. --ff-only
+Combina todos los commits de la rama en uno solo, sin crear un commit de fusión automáticamente.
+3. --squash
+- --commit: Hace el commit automáticamente después de la fusión (por defecto).
+- --no-commit: Realiza la fusión pero no hace el commit, permitiéndote revisar o modificar antes.
+4. --commit / --no-commit
+Cancela una fusión en curso si hay conflictos.
+5. --abort
+Permite especificar una estrategia de fusión como recursive, resolve, ours, theirs, etc.
+6. --strategy=<estrategia>
+Incluye (o no) los mensajes de los commits fusionados en el mensaje de fusión.
+7. --log / --no-log
+- --edit: Abre el editor para modificar el mensaje de fusión.
+- --no-edit: Usa el mensaje por defecto sin abrir el editor.
+8. --edit / --no-edit
+
+Guardar temporalmente los cambios de tu área de trabajo y poder cambiar de rama sin perderlos:
+git stash
+Restaurar los cambios que habías guardado.
+git stash pop
+Parámetros:
+Guarda los cambios en una nueva entrada del stash (es el comportamiento por defecto).
+1. push
+Muestra todas las entradas guardadas en el stash.
+2. list
+Muestra los cambios del stash más reciente.
+3. show
+Aplica los cambios del stash más reciente sin eliminarlo del stash.
+4. apply
+Aplica los cambios del stash más reciente y los elimina del stash.
+5. pop
+Elimina una entrada específica del stash.
+6. drop
+Elimina todas las entradas del stash.
+7. clear
+Crea una nueva rama desde el stash y aplica los cambios allí.
+8. branch <nombre-rama>

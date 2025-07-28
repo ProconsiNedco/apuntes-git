@@ -1,0 +1,51 @@
+
+
+
+							COMANDOS SSH
+
+
+Genera una clave ssh con el comentario "sancho-esp" y en el archivo "$env:USERPROFILE\.ssh\id_sancho_esp":
+ssh-keygen -t ed25519 -C "sancho-esp" -f "$env:USERPROFILE\.ssh\id_sancho_esp"
+
+Añade la clave del fichero "$env:USERPROFILE\.ssh\id_sancho_esp" al agente ssh:
+ssh-add "$env:USERPROFILE\.ssh\id_sancho_esp"
+
+Borra la clave ssh del fichero "$env:USERPROFILE\.ssh\id_sancho_esp" del agente ssh:
+ssh-add -d "$env:USERPROFILE\.ssh\id_sancho_esp"
+
+Arranca el servicio de agente de claves ssh en modo automático. Tiene que tener permisos de administrador:
+Set-Service -Name ssh-agent -StartupType Automatic    
+
+Lista las claves del agente ssh:
+ssh-add -l
+
+Verifica la conexión con github del archivo "$env:USERPROFILE\.ssh\id_sancho_esp":
+ssh -i "$env:USERPROFILE\.ssh\id_sancho_esp" -T git@github.com
+ssh -i "$env:USERPROFILE\.ssh\id_ed25519" -T git@github.com
+
+
+Para configurar el archivo config de SSH y asociar correctamente tus claves con los respectivos usuarios de GitHub, puedes editar (o crear) el archivo config dentro del directorio ~/.ssh con el siguiente contenido:
+
+# Configuración para el usuario sancho-esp
+Host github-sancho
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_sancho_esp
+    IdentitiesOnly yes
+
+# Configuración para el usuario ProconsiNedco
+Host github-proconsi
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+    IdentitiesOnly yes
+
+¿Cómo usar estas configuraciones?
+Cuando uses Git o SSH, puedes especificar el Host definido en el archivo config. Por ejemplo:
+
+- Para clonar un repositorio como sancho-esp:
+git clone git@github-sancho:usuario/repositorio.git
+
+- Para clonar un repositorio como ProconsiNedco:
+git clone git@github-proconsi:usuario/repositorio.git
+

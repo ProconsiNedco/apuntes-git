@@ -23,7 +23,7 @@ Clonar tu fork a tu ordenador
 3. Abre tu terminal (Git Bash).
 4. Escribe:
 
-   git clone git@github.com/sancho-esp/apuntes-git.git
+   git clone git@github-sancho:sancho-esp/apuntes-git.git
 
 5. Presiona Enter. Esto descargará el repositorio a tu ordenador.
 

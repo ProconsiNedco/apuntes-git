@@ -54,20 +54,20 @@ Sincronizar tu fork con el repositorio original
 4. chequear conflictos antes de hacer el merge
 Puedes comparar tu rama local con la rama del repositorio original (upstream/main) sin hacer el merge todavía.
 
-   git diff main upstream/main
+   git diff main refs/remotes/upstream/main
 
    Esto te mostrará las diferencias entre tu rama local y la del repositorio original. Si hay muchos cambios, puedes usar:
-   git diff --stat main upstream/main
+   git diff --stat main refs/remotes/upstream/main
    para ver un resumen.
 
 (Opcional) Simula el merge sin aplicarlo:
-   git merge --no-commit --no-ff upstream/main
+   git merge --no-commit --no-ff refs/remotes/upstream/main
 
    Esto intenta hacer el merge sin confirmar los cambios. Si hay conflictos, Git te los mostrará. Luego puedes cancelar el merge con:
    git merge --abort
 
 5. Fusiona los cambios del repositorio original en tu rama principal:
-   git merge upstream/main
+   git merge refs/remotes/upstream/main
 
 6. (Opcional) Sube los cambios a tu fork en GitHub:
    git push origin main

@@ -1,0 +1,199 @@
+
+
+					bifurcar (fork) un repositorio
+
+
+Una bifurcación es una copia de un repositorio que te permite experimentar con cambios sin afectar el original.
+
+Pasos para bifurcar un repositorio
+
+1. Ir al repositorio original (por ejemplo, ProconsiNedco/apuntes-git).
+2. Hacer clic en el botón Fork (arriba a la derecha).
+3. Elegir el propietario del nuevo repositorio (puede ser tu cuenta personal u organización).
+4. Opcionalmente, puedes:
+   - Cambiar el nombre del repositorio.
+   - Añadir una descripción.
+   - Elegir si solo quieres copiar la rama principal (recomendado para la mayoría de los casos).
+5. Hacer clic en Create fork.
+
+Clonar tu fork a tu ordenador
+
+1. Ve a tu fork en GitHub.
+2. Haz clic en la barra de menú y copia la URL (HTTPS, SSH o GitHub CLI).
+3. Abre tu terminal (Git Bash).
+4. Escribe:
+
+   git clone git@github.com/sancho-esp/apuntes-git.git
+
+5. Presiona Enter. Esto descargará el repositorio a tu ordenador.
+
+Sincronizar tu fork con el repositorio original
+
+Esto es útil para mantener tu fork actualizado con los cambios del repositorio original:
+
+1. Abre tu terminal y ve a la carpeta del repositorio clonado.
+2. Añade el repositorio original como remoto:
+
+   git remote add upstream https://github.com/ProconsiNedco/apuntes-git.git
+
+3. Verifica que se añadió correctamente:
+
+   git remote -v
+
+   Deberías ver dos remotos: origin (tu fork) y upstream (el original).
+
+Para actualizar tu fork local con los últimos cambios del repositorio original, sigue estos pasos en tu terminal:
+
+Sincronizar tu fork con el repositorio original
+
+   git fetch upstream
+
+3. Cambia a la rama principal (usualmente main o master):
+   git checkout main
+
+4. chequear conflictos antes de hacer el merge
+Puedes comparar tu rama local con la rama del repositorio original (upstream/main) sin hacer el merge todavía.
+
+   git diff main upstream/main
+
+   Esto te mostrará las diferencias entre tu rama local y la del repositorio original. Si hay muchos cambios, puedes usar:
+   git diff --stat main upstream/main
+   para ver un resumen.
+
+(Opcional) Simula el merge sin aplicarlo:
+   git merge --no-commit --no-ff upstream/main
+
+   Esto intenta hacer el merge sin confirmar los cambios. Si hay conflictos, Git te los mostrará. Luego puedes cancelar el merge con:
+   git merge --abort
+
+5. Fusiona los cambios del repositorio original en tu rama principal:
+   git merge upstream/main
+
+6. (Opcional) Sube los cambios a tu fork en GitHub:
+   git push origin main
+
+Actualizar un fork desde la web de GitHub
+
+1. Ve a tu fork en GitHub (por ejemplo, https://github.com/sancho-esp/apuntes-git).
+
+2. Encima de la lista de archivos, verás un botón o menú desplegable que dice "Sync fork" o "Sincronizar bifurcación".
+
+3. Haz clic en "Sincronizar bifurcación" y luego en "Actualizar rama".
+
+4. GitHub te mostrará un resumen de los cambios que se van a aplicar desde el repositorio original (upstream).
+
+5. Si no hay conflictos, GitHub actualizará tu fork automáticamente.
+
+6. Si hay conflictos, GitHub te pedirá que crees una pull request para resolverlos manualmente 
+
+
+Editar tu fork en git
+
+Puedes:
+
+- Crear ramas para nuevas funciones o pruebas.
+- Hacer cambios y luego enviar un pull request al repositorio original para proponer tus mejoras.
+
+Una vez que has realizado modificaciones en tu repositorio local (en tu ordenador), los pasos para subir esos cambios al repositorio remoto (tu fork en GitHub) son los siguientes:
+
+1. Verifica los cambios realizados
+
+git status
+
+Esto te mostrará los archivos modificados.
+
+2. Añade los archivos al área de preparación (staging)
+
+Puedes añadir todos los archivos modificados con:
+
+git add .
+
+3. Haz un commit con un mensaje descriptivo
+
+git commit -m "Descripción breve de los cambios"
+
+4. Sube los cambios a tu repositorio remoto (fork)
+
+git push origin nombre-de-la-rama
+
+5. (Opcional) Crea un Pull Request
+
+Si quieres que tus cambios se integren en el repositorio original, ve a tu fork en GitHub y haz clic en "Contribute" > "Open pull request".
+
+Cómo hacer un Pull Request (PR) desde una rama de tu repositorio fork hacia el repositorio original en GitHub:
+
+1. Sube tus cambios a tu fork en GitHub
+Asegúrate de haber hecho push de tus cambios a una rama de tu fork:
+
+git push origin nombre-de-tu-rama
+
+2. Ve a tu repositorio en GitHub
+
+Abre tu navegador y entra a tu fork en GitHub, por ejemplo:
+
+https://github.com/sancho-esp/apuntes-git
+
+3. Haz clic en “Compare & pull request”
+
+GitHub detectará que tu rama tiene cambios respecto al repositorio original y te mostrará un botón como:
+
+> Compare & pull request
+
+Haz clic ahí.
+
+4. Configura el Pull Request
+
+Asegúrate de que:
+
+- Base repository: es el repositorio original (por ejemplo, ProconsiNedco/apuntes-git)
+- Base branch: es la rama del original donde quieres que se integren tus cambios (normalmente main o master)
+- Head repository: es tu fork (por ejemplo, sancho-esp/apuntes-git)
+- Compare: es la rama de tu fork con los cambios
+
+5. Escribe un título y una descripción clara
+
+- Título: breve y descriptivo (ej. "Corrige error en validación de formularios")
+- Descripción: explica qué hiciste, por qué, y cualquier detalle relevante
+
+6.Haz clic en “Create pull request”
+
+¡Y listo! Tu PR estará creado y los responsables del repositorio original podrán revisarlo, comentarlo y eventualmente aceptarlo.
+
+Pasos para aceptar o comentar una pull request en el repositorio original de GitHub:
+
+1. Ir a la pestaña de "Pull requests"
+- En el repositorio original, haz clic en la pestaña "Pull requests" (normalmente está cerca de "Code" y "Issues").
+- Verás una lista de pull requests abiertas.
+
+2. Seleccionar la pull request
+- Haz clic en el título de la pull request que quieres revisar.
+- Se abrirá una vista detallada con:
+  - Descripción del cambio.
+  - Archivos modificados.
+  - Comentarios anteriores (si los hay).
+
+3. Comentar la pull request
+Tienes varias formas de comentar:
+
+- Comentario general: escribe en el cuadro de texto al final de la conversación y haz clic en **"Comment"**.
+- Comentario en línea: ve a la pestaña "Files changed", pasa el cursor sobre una línea de código y haz clic en el ícono de “+” para comentar directamente sobre esa línea.
+- Puedes usar esto para sugerir mejoras, hacer preguntas o dar retroalimentación.
+
+4. Aprobar o solicitar cambios
+En la pestaña "Conversation" o "Files changed", haz clic en "Review changes" (esquina superior derecha) y elige una de estas opciones:
+
+- Comment: solo dejas comentarios sin aprobar ni rechazar.
+- Approve: apruebas los cambios y estás listo para fusionarlos.
+- Request changes: pides que se hagan cambios antes de aprobar.
+
+Luego haz clic en "Submit review".
+
+5. Fusionar la pull request (Merge)
+Si estás satisfecho con los cambios:
+
+1. Haz clic en el botón "Merge pull request".
+2. Puedes editar el mensaje de confirmación si lo deseas.
+3. Haz clic en "Confirm merge".
+
+También puedes elegir otras opciones como Squash and merge o Rebase and merge, dependiendo de tu flujo de trabajo.
+

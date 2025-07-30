@@ -63,11 +63,11 @@ git status    
 Ver el historial:
 git log
 Parámetros:
-- `--oneline`: Muestra cada commit en una sola línea (hash corto + mensaje).
-- `--graph`: Dibuja un gráfico ASCII del historial de ramas.
-- `--decorate`: Muestra nombres de ramas y etiquetas junto a los commits.
-- `--name-only`: Lista solo los nombres de archivos modificados.
-- `--grep="texto"`: Filtra commits cuyo mensaje contiene cierto texto.
+- --oneline: Muestra cada commit en una sola línea (hash corto + mensaje).
+- --graph: Dibuja un gráfico ASCII del historial de ramas.
+- --decorate: Muestra nombres de ramas y etiquetas junto a los commits.
+- --name-only: Lista solo los nombres de archivos modificados.
+- --grep="texto": Filtra commits cuyo mensaje contiene cierto texto.
 
 Ver todas las referencias del historial:
 git reflog
@@ -113,7 +113,7 @@ Opciones:
 Muestra solo los nombres de los archivos modificados.
 --name-only  
 
-Muestra los nombres de los archivos y el tipo de cambio (`A` = añadido, `M` = modificado, `D` = eliminado).
+Muestra los nombres de los archivos y el tipo de cambio (A = añadido, M = modificado, D = eliminado).
 --name-status  
 
 Muestra un resumen estadístico de los cambios (líneas añadidas/eliminadas por archivo).

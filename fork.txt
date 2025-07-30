@@ -133,7 +133,8 @@ Abre tu navegador y entra a tu fork en GitHub, por ejemplo:
 
 https://github.com/sancho-esp/apuntes-git
 
-3. Haz clic en “Compare & pull request”
+3. haz clic en "Contribute" > "Open pull request".
+Haz clic en “Compare & pull request”
 
 GitHub detectará que tu rama tiene cambios respecto al repositorio original y te mostrará un botón como:
 

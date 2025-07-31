@@ -200,3 +200,99 @@ Elimina todas las entradas del stash.
 7. clear
 Crea una nueva rama desde el stash y aplica los cambios allí.
 8. branch <nombre-rama>
+
+Comando git push.
+Se utiliza para subir cambios locales a un repositorio remoto. Su sintaxis básica es:
+
+git push [opciones] [repositorio] [rama]
+
+
+Parámetros:
+
+- origin: nombre del repositorio remoto (por defecto es origin).
+- main o master u otra rama: nombre de la rama que quieres subir.
+
+Opciones útiles
+
+--all: sube todas las ramas al repositorio remoto.
+--tags: sube todas las etiquetas (tags) al repositorio remoto.
+--force o -f: fuerza el push, sobrescribiendo el historial remoto (¡útil con precaución!).
+--force-with-lease: similar a --force, pero más seguro porque verifica que no haya cambios remotos inesperados.
+--set-upstream o -u: establece una rama de seguimiento entre la rama local y la remota.
+--dry-run: simula el push sin realizarlo realmente, útil para verificar qué se enviaría.
+--delete: elimina una rama remota.
+  git push origin --delete feature/rama-antigua
+
+Comando git fetch:  
+El comando git fetch se utiliza para descargar los cambios desde un repositorio remoto sin aplicarlos directamente a tu rama actual. Es útil para mantener tu repositorio local actualizado con los cambios remotos antes de hacer un merge o rebase.
+
+git fetch [opciones] [repositorio] [refspec]
+
+Parámetros:
+
+- origin: nombre del repositorio remoto (por defecto).
+- <nombre-de-rama>: puedes especificar una rama concreta que deseas traer.
+git fetch origin main
+
+Opciones:
+
+--all: descarga de todos los repositorios remotos configurados.
+--prune: elimina las referencias a ramas remotas que ya no existen.
+--dry-run: muestra lo que se descargaría sin hacerlo realmente.
+--tags: descarga todas las etiquetas del repositorio remoto.
+--force: fuerza la actualización de referencias incluso si hay divergencias.
+
+
+Parámetro [refspec] en el comando git fetch: 
+se utiliza para definir qué referencias específicas (ramas, etiquetas, etc.) deseas traer del repositorio remoto y dónde colocarlas en tu repositorio local.
+
+Sintaxis
+<origen>:<destino>
+
+- <origen>: la referencia en el repositorio remoto (por ejemplo, refs/heads/main)
+- <destino>: la referencia en tu repositorio local (por ejemplo, refs/remotes/origin/main)
+
+ Ejemplos prácticos
+
+1. Traer una rama específica:
+git fetch origin main
+
+Esto es equivalente a usar el refspec:
+git fetch origin refs/heads/main:refs/remotes/origin/main
+
+2. Traer una rama remota y guardarla con otro nombre local:
+git fetch origin refs/heads/main:refs/remotes/origin/otra-rama
+
+3. Traer todas las ramas:
+git fetch origin "+refs/heads/*:refs/remotes/origin/*"
+
+El + indica que se puede sobrescribir si es necesario (como un --force).
+
+ ¿Cuándo usar refspecs?
+
+- Cuando quieres controlar exactamente qué ramas o etiquetas se traen.
+- Cuando necesitas renombrar ramas remotas localmente.
+- Cuando haces scripts o automatizaciones avanzadas con Git.
+
+Comando git pull:
+Se utiliza para actualizar tu rama local con los cambios del repositorio remoto. Es una combinación de dos comandos: git fetch seguido de git merge (o git rebase, si se configura así).
+
+ Sintaxis:
+
+git pull [opciones] [repositorio] [rama]
+
+Parámetros:
+
+- origin: nombre del repositorio remoto (por defecto).
+- main, master, develop, etc.: nombre de la rama que quieres traer y fusionar.
+
+git pull origin main
+
+Opciones:
+
+--rebase: en lugar de hacer un merge, aplica los cambios remotos sobre tus commits locales usando rebase.
+--no-commit: evita que se cree automáticamente un commit de merge.
+--no-ff: fuerza un commit de merge incluso si se puede hacer un fast-forward.
+--ff-only: solo permite el fast-forward; si no es posible, aborta el pull.
+--verbose: muestra más información durante el proceso.
+

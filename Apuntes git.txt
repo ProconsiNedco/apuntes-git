@@ -44,6 +44,9 @@ git commit -am "Tu mensaje de commit"
 Permite cambiar el mensaje del último commit:
 git commit --amend
 
+Ver el contenido de un commit:
+git show <commit_hash>
+
 Verificar la existencia del remoto:
 git remote -v
 
@@ -85,6 +88,9 @@ git reset
 Restaura el archivo del último commit al área de trabajo:
 git restore archivo.txt
 git checkout -- archivo.txt
+
+Restaura todos los archivos del último commit al área de trabajo:
+git restore .
 
 Restaura todos los archivos al área de trabajo y elimina los archivos del área de preparación:
 git reset --hard

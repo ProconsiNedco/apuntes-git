@@ -38,7 +38,7 @@ git add .
 Hacer una instantania de lo que se ha añadido al área de preparación de git:
 git commit -m "Este es mi primer commit"
 
-Añadir todos los archivos, que ya se hayan añadido en instantaneas anteriores, al área de preparación y Hacer una instantania de lo que se ha añadido al área de preparación de git:
+Adios Añadir todos los archivos, que ya se hayan añadido en instantaneas anteriores, al área de preparación y Hacer una instantania de lo que se ha añadido al área de preparación de git:
 git commit -am "Tu mensaje de commit"
 
 Permite cambiar el mensaje del último commit:

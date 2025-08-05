@@ -83,7 +83,10 @@ Elimina el archivo del área de preparación:
 git reset archivo.txt
 
 Elimina todos los archivos del área de preparación:
-git reset
+git reset .
+
+Deshace el último commit, pero deja los cambios en el área de preparación listos para ser re-commiteados.
+git reset --soft HEAD~1
 
 Restaura el archivo del último commit al área de trabajo:
 git restore archivo.txt
@@ -94,6 +97,13 @@ git restore .
 
 Restaura todos los archivos al área de trabajo y elimina los archivos del área de preparación:
 git reset --hard
+
+Comando git revert se utiliza para crear un nuevo commit que deshace los cambios introducidos por un commit anterior, sin alterar el historial del repositorio (a diferencia de git reset).
+git revert [opciones] <commit>
+
+Opciones:
+--continue Continúa un revert que fue interrumpido por un conflicto
+--abort	Cancela un revert en curso y restaura el estado anterior.
 
 Muestra los cambios no confirmados (unstaged) en el directorio de trabajo.
 git diff

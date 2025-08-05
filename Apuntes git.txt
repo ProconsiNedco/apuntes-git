@@ -103,7 +103,7 @@ git revert [opciones] <commit>
 
 Opciones:
 --continue Continúa un revert que fue interrumpido por un conflicto
---abort	Cancela un revert en curso y restaura el estado anterior.
+--abort	Cancela un revert en curso y restaura el estado anterior.1
 
 Muestra los cambios no confirmados (unstaged) en el directorio de trabajo.
 git diff

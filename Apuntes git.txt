@@ -103,7 +103,7 @@ git revert [opciones] <commit>
 
 Opciones:
 --continue Continúa un revert que fue interrumpido por un conflicto
---abort	Cancela un revert en curso y restaura el estado anterior.3
+--abort	Cancela un revert en curso y restaura el estado anterior.
 
 Muestra los cambios no confirmados (unstaged) en el directorio de trabajo.
 git diff
@@ -117,7 +117,10 @@ git diff --stat
 Ver diferencias de un archivo:
 git diff HEAD -- ruta/del/archivo.txt
 
-Muestra los cambios que han sido añadidos al área de preparación (staged) pero aún no confirmados.
+Ver diferencias de todos los archivos:
+git diff .
+
+Muestra los cambios que han sido añadidos al área de preparación (staged) con respecto al último commit, pero aún no confirmados.
 git diff --staged
 
 Muestra las diferencias entre dos commits.
@@ -198,6 +201,29 @@ Incluye (o no) los mensajes de los commits fusionados en el mensaje de fusión.
 - --edit: Abre el editor para modificar el mensaje de fusión.
 - --no-edit: Usa el mensaje por defecto sin abrir el editor.
 8. --edit / --no-edit
+
+Comando git rebase
+git rebase [opciones] [rama-base]
+
+Parámetros:
+Inicia un rebase interactivo, permitiéndote editar, reordenar, combinar o eliminar commits.
+1. -i o --interactive; git rebase -i HEAD~3
+Permite cambiar la base de una rama a otra arbitraria.
+2. --onto; git rebase --onto nueva-base rama-base rama-a-rebasar
+Continúa el rebase después de resolver conflictos.
+3. --continue; git rebase --continue
+Cancela el rebase y vuelve al estado anterior.
+4. --abort; git rebase --abort
+Omite el commit actual que está causando conflicto.
+5. --skip; git rebase --skip
+Ejecuta un comando en cada commit durante el rebase (útil para pruebas automáticas).
+6. --exec "<comando>"; git rebase -i --exec "npm test" HEAD~5
+Rebase desde el primer commit (el "root").
+7. --root; git rebase --root
+Reescribe el historial manteniendo la estructura de merges.
+8. --rebase-merges; git rebase --rebase-merges
+Guarda automáticamente los cambios sin confirmar antes del rebase y los restaura después.
+9. --autostash; git rebase --autostash
 
 Guardar temporalmente los cambios de tu área de trabajo y poder cambiar de rama sin perderlos:
 git stash
